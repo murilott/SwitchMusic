@@ -4,6 +4,13 @@ import jakarta.persistence.ManyToOne;
 
 import java.util.List;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@Entity
 public class Compartilhamento {
     private long id;
 

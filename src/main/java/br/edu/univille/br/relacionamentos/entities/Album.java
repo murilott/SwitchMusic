@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Idioma {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Album extends Lista{
 
-    @Column(nullable = false)
-    private String nome;
 }

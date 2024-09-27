@@ -1,0 +1,17 @@
+    Musica: String nome, Album album, String duracao, Long reproducoes, boolean explicito 
+
+    Lista: String nome, Usuario artista, List<Musica> musicas
+
+    Album 
+
+    Playlist 
+
+    Queue 
+
+    Pessoa: String nome, String email, String senha, boolean verificado 
+
+    Artista: Long ouvintes, List<Album> discografia 
+
+    Usuario: List<Album> curtidos, List<> List<Artista> seguindo 
+
+    Perfil 

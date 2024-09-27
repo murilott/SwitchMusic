@@ -9,11 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Usuario extends Pessoa{
-    @Column(nullable = false)
-    @OneToOne
-    private Perfil perfil;
-    
-    private List<Album> curtidos;
-    private List<Artista> seguindo;
+public class Artista extends Pessoa{
+    private long ouvintes;
+    private List<Album> discografia
 }
