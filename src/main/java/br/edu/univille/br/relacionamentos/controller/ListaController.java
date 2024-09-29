@@ -2,7 +2,7 @@ package br.edu.univille.br.relacionamentos.controller;
 
 import br.edu.univille.br.relacionamentos.entities.Lista;
 import br.edu.univille.br.relacionamentos.entities.Perfil;
-import br.edu.univille.br.relacionamentos.entities.Usuario;
+import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ public class ListaController {
     private ListaService service;
 
     @GetMapping()
-    public List<Lista> obterTodosdoUsuario(@RequestBody Usuario usuario) {
+    public List<Lista> obterTodosdoUsuario(@RequestBody Ouvinte usuario) {
         return service.ObterTodosDoUsuario(usuario);
     }
 

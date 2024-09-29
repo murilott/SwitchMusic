@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 public class Compartilhamento {
     private long id;
 
+    // @ManyToOne
+    // private Acesso acesso;
     @ManyToOne
-    private Acesso acesso;
+    private Ouvinte compartilhadoPor;
     @ManyToOne
-    private Usuario compartilhadoPor;
-    @ManyToOne
-    private Usuario recebidoPor;
+    private Ouvinte recebidoPor;
 
 
     private Lista listaDeTarefas;

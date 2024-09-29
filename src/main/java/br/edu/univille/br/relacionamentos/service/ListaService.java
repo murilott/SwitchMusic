@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.univille.br.relacionamentos.entities.Lista;
+import br.edu.univille.br.relacionamentos.entities.Musica;
 import br.edu.univille.br.relacionamentos.entities.Perfil;
-import br.edu.univille.br.relacionamentos.entities.Tarefa;
-import br.edu.univille.br.relacionamentos.entities.Usuario;
+import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import br.edu.univille.br.relacionamentos.repository.ListaRepository;
 import br.edu.univille.br.relacionamentos.repository.PerfilRepository;
-import br.edu.univille.br.relacionamentos.repository.UsuarioRepository;
+import br.edu.univille.br.relacionamentos.repository.OuvinteRepository;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,29 +25,33 @@ public class ListaService {
     @Autowired
     ListaRepository repository;
 
-    public List<Lista> ObterTodosDoUsuario(Usuario usuario) {
-        List<Lista> todos = new ArrayList<Lista>();
+    // public List<Lista> ObterTodosDoUsuario(Usuario usuario) {
+    //     List<Lista> todos = new ArrayList<Lista>();
 
-        for( var lista : repository.findAll()) {
-            if (lista.getCriador().getId() == usuario.getId()) {
-                todos.add(lista);
-            }
-        }
+    //     for( var lista : repository.findAll()) {
+    //         if (lista.getCriador().getId() == usuario.getId()) {
+    //             todos.add(lista);
+    //         }
+    //     }
 
-        return todos;
-    }
+    //     return todos;
+    // }
 
     public Lista ObterPeloId(Long id) {
         return repository.findById(id).orElse(null);
     }
 
+    public void IncluirMusica(Lista lista, Musica musica) {
+        lista.getMusicas().add(musica);
+    }
+
     public Lista Atualizar(Lista lista) {
         Lista antigo = repository.findById(lista.getId()).orElse(null);
 
-        antigo.setTarefas(lista.getTarefas());
         antigo.setNome(lista.getNome());
-        // antigo.setCriador(lista.getCriador());
-        antigo.setCor(lista.getCor());
+        antigo.setCriador(lista.getCriador());
+        // antigo.setCurtidas(lista.getCurtidas());
+        antigo.setMusicas(lista.getMusicas());
 
         return repository.save(antigo);
     }

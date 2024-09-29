@@ -1,5 +1,7 @@
 package br.edu.univille.br.relacionamentos.entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,19 +14,10 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
-    private String nomeCompleto;
-
-    private String foto;
-
     @ManyToOne
-    private Idioma idioma;
-
-    @Column(nullable = false)
-    @ManyToOne
-    private Tema tema;
+    private List<Genero> preferencias;
 
     @Column(nullable = false)
     @OneToOne
-    private Usuario usuario;
+    private Pessoa pessoa;
 }

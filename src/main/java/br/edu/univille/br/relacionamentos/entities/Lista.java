@@ -19,7 +19,7 @@ public class Lista {
 
     @Column(nullable = false)
     @ManyToOne
-    private Pessoa artista;
+    private Pessoa criador;
     
     @OneToMany
     @JoinColumn(name = "lista_id")

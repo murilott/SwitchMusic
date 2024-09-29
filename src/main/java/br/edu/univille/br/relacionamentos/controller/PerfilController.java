@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import br.edu.univille.br.relacionamentos.entities.Perfil;
-import br.edu.univille.br.relacionamentos.entities.Usuario;
+import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import br.edu.univille.br.relacionamentos.service.PerfilService;
 
 
@@ -18,7 +18,7 @@ public class PerfilController {
     private PerfilService service;
 
     @GetMapping()
-    public Perfil obter(@RequestBody Usuario usuario) {
+    public Perfil obter(@RequestBody Ouvinte usuario) {
         return service.Obter(usuario);
     }
 

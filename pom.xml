@@ -11,8 +11,8 @@
     <groupId>br.edu.univille.br</groupId>
     <artifactId>relacionamentos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SistemaTarefas</name>
-    <description>jpa-relacinamentos</description>
+    <name>SwitchMusic</name>
+    <description>sis-musica</description>
     <url/>
     <licenses>
         <license/>
@@ -54,6 +54,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -72,5 +77,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

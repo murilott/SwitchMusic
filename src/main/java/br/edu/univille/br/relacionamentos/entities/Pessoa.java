@@ -1,5 +1,7 @@
 package br.edu.univille.br.relacionamentos.entities;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 import jakarta.persistence.*;
@@ -28,4 +30,6 @@ public class Pessoa {
     private Perfil perfil;
 
     private boolean verificado;
+
+    private List<Playlist> playlists;
 }

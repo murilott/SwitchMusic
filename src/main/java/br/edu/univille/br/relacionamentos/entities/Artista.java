@@ -4,12 +4,18 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Entity
 public class Artista extends Pessoa{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
     private long ouvintes;
-    private List<Album> discografia
+    private List<Album> discografia;
 }

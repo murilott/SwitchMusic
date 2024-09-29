@@ -2,7 +2,7 @@ package br.edu.univille.br.relacionamentos.controller;
 
 import br.edu.univille.br.relacionamentos.entities.Lista;
 import br.edu.univille.br.relacionamentos.entities.Tarefa;
-import br.edu.univille.br.relacionamentos.entities.Usuario;
+import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import br.edu.univille.br.relacionamentos.service.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

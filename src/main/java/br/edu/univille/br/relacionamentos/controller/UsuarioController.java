@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.univille.br.relacionamentos.entities.Perfil;
 import br.edu.univille.br.relacionamentos.entities.Tarefa;
-import br.edu.univille.br.relacionamentos.entities.Usuario;
+import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import br.edu.univille.br.relacionamentos.service.ListaService;
-import br.edu.univille.br.relacionamentos.service.UsuarioService;
+import br.edu.univille.br.relacionamentos.service.OuvinteService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,17 +27,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UsuarioController {
     
     @Autowired
-    private UsuarioService service;
+    private OuvinteService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> obterPeloId(@PathVariable Long id){
+    public ResponseEntity<Ouvinte> obterPeloId(@PathVariable Long id){
         var opt = service.ObterPeloId(id);
         
         return opt.map(usuario -> new ResponseEntity<>(usuario, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PutMapping()
-    public ResponseEntity<?> atualizar(@RequestBody Usuario usuario){
+    public ResponseEntity<?> atualizar(@RequestBody Ouvinte usuario){
         try {
             usuario = service.Atualizar(usuario);
             return new ResponseEntity<>(usuario, HttpStatus.OK);
@@ -47,7 +47,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody Usuario usuario){
+    public ResponseEntity<?> cadastrar(@RequestBody Ouvinte usuario){
         try {
             // usuario.setPerfil(new Perfil());
             usuario = service.Cadastrar(usuario);

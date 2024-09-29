@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-
-public class Tema {
+public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

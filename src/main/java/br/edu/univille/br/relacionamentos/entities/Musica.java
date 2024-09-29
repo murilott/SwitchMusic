@@ -8,27 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Musica {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String nome;
     private Album album;
-    private String duracao;
-    private Long reproducoes;
+    private int duracao;
+    private long reproducoes;
     private boolean explicito;
+    private Genero genero;
 }
-
-
-//Musica: String nome, Album album, String duracao, Long reproducoes, boolean explicito, boolean like
-//
-//Artista: String nome, Long ouvintes, boolean verificado, List<Album> discografia
-//
-//        Lista
-//
-//Album
-//
-//        Playlist
-//
-//Queue
-//
-//Usuario: String nome, String email, String senha, boolean verificado, List<Album> curtidos, List<> List<Artista> seguindo
-//
-//        Perfil
