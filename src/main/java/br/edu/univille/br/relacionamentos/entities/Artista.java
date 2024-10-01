@@ -17,5 +17,8 @@ public class Artista extends Pessoa{
     private long id;
     
     private long ouvintes;
+
+    @OneToMany
+    @JoinColumn(name = "artista_id")
     private List<Album> discografia;
 }

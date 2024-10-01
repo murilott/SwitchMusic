@@ -13,9 +13,14 @@ public class Musica {
     private long id;
 
     private String nome;
+
+    @Column(nullable = false)
+    @ManyToOne
     private Album album;
     private int duracao;
     private long reproducoes;
     private boolean explicito;
+
+    @OneToOne
     private Genero genero;
 }

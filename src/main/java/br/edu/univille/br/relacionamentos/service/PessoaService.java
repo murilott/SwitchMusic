@@ -1,6 +1,5 @@
 package br.edu.univille.br.relacionamentos.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,13 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.univille.br.relacionamentos.entities.Musica;
+import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import br.edu.univille.br.relacionamentos.entities.Pessoa;
 import br.edu.univille.br.relacionamentos.entities.Playlist;
 import br.edu.univille.br.relacionamentos.repository.PessoaRepository;
-import br.edu.univille.br.relacionamentos.repository.PlaylistRepository;
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Service
 public class PessoaService {
@@ -26,10 +22,13 @@ public class PessoaService {
     PlaylistService playlistService;
 
     public Optional<Pessoa> ObterPeloId(Long id) {
-        return repository.findById(id); //.orElse(null)
+        Optional<Pessoa> user = repository.findById(id);
+        user.ifPresent(us -> us.setSenha("*"));
+        // user.setSenha("*");
+        return user;
     }
 
-    public void CriarPlaylist(Pessoa pessoa, List<Musica> musicas, String nome) {
+    public Playlist CriarPlaylist(Pessoa pessoa, List<Musica> musicas, String nome) {
         Playlist novaPlaylist = new Playlist();
 
         novaPlaylist.setCriador(pessoa);
@@ -40,6 +39,8 @@ public class PessoaService {
         novaPlaylist = playlistService.Cadastrar(novaPlaylist);
         
         pessoa.getPlaylists().add(novaPlaylist);
+
+        return novaPlaylist;
     }
 
     // pode ser desnecessário

@@ -12,10 +12,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Ouvinte extends Pessoa{
-    @Column(nullable = false)
-    @OneToOne
-    private Perfil perfil;
+    // @Column(nullable = false)
+    // @OneToOne
+    // private Perfil perfil;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     
+    @OneToMany
+    @JoinColumn(name = "ouvinte_id")
     private Playlist curtidos;
+
+    @OneToMany
+    @JoinColumn(name = "ouvinte_id")
     private List<Artista> seguindo;
 }

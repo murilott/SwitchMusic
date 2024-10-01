@@ -31,5 +31,7 @@ public class Pessoa {
 
     private boolean verificado;
 
+    @OneToMany
+    @JoinColumn(name = "artista_id")
     private List<Playlist> playlists;
 }

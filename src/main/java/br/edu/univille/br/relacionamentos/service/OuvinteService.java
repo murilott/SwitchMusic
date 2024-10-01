@@ -1,39 +1,30 @@
 package br.edu.univille.br.relacionamentos.service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.univille.br.relacionamentos.entities.Perfil;
-import br.edu.univille.br.relacionamentos.entities.Pessoa;
-import br.edu.univille.br.relacionamentos.entities.Playlist;
-import br.edu.univille.br.relacionamentos.entities.Album;
 import br.edu.univille.br.relacionamentos.entities.Artista;
 import br.edu.univille.br.relacionamentos.entities.Musica;
 import br.edu.univille.br.relacionamentos.entities.Ouvinte;
 import br.edu.univille.br.relacionamentos.repository.OuvinteRepository;
-import br.edu.univille.br.relacionamentos.repository.PlaylistRepository;
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Service
-public class OuvinteService {
+public class OuvinteService extends PessoaService {
     
     @Autowired
     private OuvinteRepository repository;
 
     
 
-    public Optional<Ouvinte> ObterPeloId(Long id) {
-        Optional<Ouvinte> user = repository.findById(id);
-        user.ifPresent(us -> us.setSenha("*"));
-        // user.setSenha("*");
-        return user;
-    }
+    // public Optional<Ouvinte> ObterPeloId(Long id) {
+    //     Optional<Ouvinte> user = repository.findById(id);
+    //     user.ifPresent(us -> us.setSenha("*"));
+    //     // user.setSenha("*");
+    //     return user;
+    // }
 
     public void Curtir(Ouvinte ouvinte, Musica musica) {
         for ( var mus : ouvinte.getCurtidos().getMusicas() ) {
@@ -59,7 +50,7 @@ public class OuvinteService {
     
 
     public Ouvinte Cadastrar(Ouvinte ouvinte) {
-        Perfil perfil = new Perfil();
+        // Perfil perfil = new Perfil();
 
         ouvinte.setId(0);
         ouvinte = repository.save(ouvinte);

@@ -1,7 +1,5 @@
 package br.edu.univille.br.relacionamentos.service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +7,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.univille.br.relacionamentos.entities.Genero;
 import br.edu.univille.br.relacionamentos.repository.GeneroRepository;
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Service
 public class GeneroService {
