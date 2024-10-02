@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.edu.univille.br.relacionamentos.entities.Tarefa;
 import br.edu.univille.br.relacionamentos.service.ListaService;
 
 import java.util.List;
@@ -22,12 +21,12 @@ public class ListaController {
     private ListaService service;
 
     @GetMapping()
-    public List<Lista> obterTodosdoUsuario(@RequestBody Ouvinte usuario) {
-        return service.ObterTodosDoUsuario(usuario);
+    public List<Lista> obterTodosDaPessoa(@RequestBody Ouvinte usuario) {
+        return service.ObterTodosDaPessoa(usuario);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Tarefa> obterPeloId(@PathVariable Long id){
+    public ResponseEntity<Lista> obterPeloId(@PathVariable Long id){
         var opt = service.ObterPeloId(id);
         
         return opt.map(lista -> new ResponseEntity<>(lista, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));

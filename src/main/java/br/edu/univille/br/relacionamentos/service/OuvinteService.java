@@ -17,8 +17,6 @@ public class OuvinteService extends PessoaService {
     @Autowired
     private OuvinteRepository repository;
 
-    
-
     // public Optional<Ouvinte> ObterPeloId(Long id) {
     //     Optional<Ouvinte> user = repository.findById(id);
     //     user.ifPresent(us -> us.setSenha("*"));
@@ -27,11 +25,15 @@ public class OuvinteService extends PessoaService {
     // }
 
     public void Curtir(Ouvinte ouvinte, Musica musica) {
-        for ( var mus : ouvinte.getCurtidos().getMusicas() ) {
+        Ouvinte antigo = repository.findById(ouvinte.getId()).orElse(null);
+
+        for ( var mus : antigo.getCurtidos().getMusicas() ) {
             if ( musica == mus ) {
-                ouvinte.getCurtidos().getMusicas().remove(musica);
+                antigo.getCurtidos().getMusicas().remove(musica);
+                repository.save(antigo);
             } else {
-                ouvinte.getCurtidos().getMusicas().add(musica);
+                antigo.getCurtidos().getMusicas().add(musica);
+                repository.save(antigo);
             }
         }
         
